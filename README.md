@@ -54,6 +54,10 @@ To activate the who pipeline, launch the ROS publisher
 ```
 roslaunch himax himax.roslaunch
 ```
+To record the video, just run 
+```
+rosbag record /image_raw
+```
 
 ### Development
 
