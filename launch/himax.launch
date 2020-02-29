@@ -1,0 +1,32 @@
+<launch>
+
+
+  <arg name="top" value="64"/>
+  <arg name="bottom" value="0"/>
+  <arg name="right" value="0"/>
+  <arg name="left" value="0"/>
+  <arg name="step" value="3"/>
+  <arg name="pulp" value="0"/>
+  <arg name="format" value="0"/>
+  <arg name="target_level" value="112"/>
+  <!-- 0 = QVGA, 1 = QQVGA, 2 = SQUARE (162 x 162) -->
+ 
+  <arg name="full_width" value="$(eval {0: 324, 1: 162, 2: 162}.get(arg('format')))"/>
+  <arg name="full_height" value="$(eval {0: 244, 1: 122, 2: 162}.get(arg('format')))"/>
+  <arg name="width" value="$(eval (arg('full_width') - arg('left') - arg('right')) //  arg('step'))"/>
+  <arg name="height" value="$(eval (arg('full_height') - arg('top') - arg('bottom')) //  arg('step'))"/>
+
+  <node required="true" output="screen" name="foo" pkg="himax" type="himax.bash" args="$(arg top) $(arg right) $(arg bottom) $(arg left) $(arg step) $(arg pulp) $(arg format) $(arg target_level) $(find himax)/pulp/camera_to_fifo"/>
+
+  <node required="true" pkg="himax" name="himax" type="himax_driver.py" output="screen">
+    <param name="width" value="$(arg width)"/>
+    <param name="height" value="$(arg height)"/>
+    <param name="pipe" value="/tmp/image_pipe"/>
+  </node>
+  <!-- <node pkg="himax" name="inference" type="run_inference.py" output="screen">
+    <param name="model" value="$(find himax)/model/DronetGray.pt"/>
+    <remap from="input" to="image_raw"/>
+  </node> -->
+  <node name="rqt_image_view" pkg="rqt_image_view" type="rqt_image_view" args="/image_raw"/>
+  <node name="keyboard" pkg="keyboard" type="keyboard" />
+</launch>
