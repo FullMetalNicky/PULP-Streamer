@@ -13,6 +13,30 @@ Parameters of this pipeline can be adjusted through the Himax.launch file, and i
 ### Project Structure
 The project has the following directory structure. Change it at your own risk.
 
+.
+├── CMakeLists.txt
+├── launch
+│   └── himax.launch
+├── package.xml
+├── pulp
+│   └── camera_to_fifo
+|       ├── build
+|       ├── Gap8.h
+│       ├── ImgIO.c
+│       ├── ImgIO.h
+│       ├── Makefile
+│       ├── test1.c
+│       ├── test.c
+│       └── test.txt
+├── README.md
+├── script
+│   ├── himax.bash
+│   ├── himax_driver.py
+│   ├── preprocess.py
+├── setup.py
+
+
+
 ### Installation
 This code runs on Ubuntou 16.04 and 18.04. If it happens to run on any other OS, consider it a miracle.
 The following dependencies are needed:
