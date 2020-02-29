@@ -19,13 +19,4 @@ roslaunch himax himax.roslaunch
 ```
 
 
-TODO
-----
 
-- [x] added args
-  - margins
-  - QQVGA/SQUARE
-  - camera_id
-  - subsampling step
-
-- [ ] why has 1/3 subsampling higher fps (e2e) ?
