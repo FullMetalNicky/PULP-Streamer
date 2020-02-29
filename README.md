@@ -12,7 +12,7 @@ Parameters of this pipeline can be adjusted through the Himax.launch file, and i
 
 ### Project Structure
 The project has the following directory structure. Change it at your own risk.
-
+```
 .
 ├── CMakeLists.txt
 ├── launch
@@ -34,7 +34,7 @@ The project has the following directory structure. Change it at your own risk.
 │   ├── himax_driver.py
 │   ├── preprocess.py
 ├── setup.py
-
+```
 
 
 ### Installation
