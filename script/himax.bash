@@ -12,6 +12,9 @@ echo -e "$1\n$2\n$3\n$4\n$5\n$camera\n$7\n$8\nEND\n" > /tmp/config.txt
 source ~/Documents/Drone/pulp-sdk/configs/gap.sh
 source ~/Documents/Drone/pulp-sdk/configs/platform-board.sh
 
+make clean conf all -C himax/pulp/camera_to_fifo
+
+
 # plpbridge --cable=ftdi@digilent --boot-mode=jtag --binary=$6/build/gap/test/test --chip=gap reset stop load ioloop reqloop start wait
 
 if [[ $6 -eq "1" ]]; then
