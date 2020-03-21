@@ -49,7 +49,7 @@ This can be installed as a ROS package. If you don't have a workspace, create an
 ```
 catkin init
 ```
-using [catkin tools](https://catkin-tools.readthedocs.io/en/latest/verbs/catkin_init.html). Clone this repository to the 'src' folder, and run  
+using [catkin tools](https://catkin-tools.readthedocs.io/en/latest/verbs/catkin_init.html). Clone this repository to the 'src' folder. Change the folder name to himax, because this is the package name, but it's a stupid name for a repo. then run  
 ```
 catkin build
 ```
@@ -64,6 +64,11 @@ First you need to create a pipe inside the pulp folder, like this
 mkfifo /tmp/image_pipe
 ```
 The name is important, because the scripts search for this names pipe.  
+Remember to source the pulp-sdk paths:
+```
+source  your-folder-structure/pulp-sdk/configs/gap.sh
+source your-folder-structure/pulp-sdk/configs/platform-board.sh
+```
 
 To compile the camera_to_fifo code, go to pulp/camera_to_fifo and execute
 ```
@@ -74,7 +79,7 @@ To run it execute
 ```
 plpbridge --chip=gap --cable=ftdi --binary=build/gap/test/test load ioloop reqloop start wait
 ```
-To activate the who pipeline, launch the ROS publisher
+To activate the who pipeline, launch the ROS publisher from the himax_ws folder
 ```
 roslaunch himax himax.roslaunch
 ```
