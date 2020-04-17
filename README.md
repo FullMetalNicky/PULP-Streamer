@@ -81,7 +81,7 @@ plpbridge --chip=gap --cable=ftdi --binary=build/gap/test/test load ioloop reqlo
 ```
 To activate the who pipeline, launch the ROS publisher from the himax_ws folder
 ```
-roslaunch himax himax.roslaunch
+roslaunch himax himax.launch
 ```
 To record the video, just run 
 ```
